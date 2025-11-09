@@ -2,43 +2,51 @@
 
 Two simple JavaScript scripts to bulk download images from Pinterest.
 
-## pinterest-image-downloader.js
+## domscript.js
 
-**Smart High-Quality Pinterest Downloader**
+**DOM Image Downloader - Best Quality**
 
-Downloads the highest quality version of Pinterest images by intelligently upgrading low-quality network URLs.
+Downloads only the images currently visible on your screen from the DOM.
 
 **Features:**
-- Scans browser network requests for Pinterest images
-- Automatically upgrades URLs from low quality (`/236x/`) to highest available quality (`/originals/`, `/1200x/`, etc.)
-- Detects and removes duplicate images
-- Compares file sizes to ensure best quality
-- Downloads only one copy of each image at maximum resolution
+- Scans visible images in the page DOM
+- Automatically detects and removes duplicate resolutions
+- Compares file sizes to download only the highest quality version
+- Limited to images currently loaded on screen
 
 **How to use:**
-1. Browse Pinterest and scroll through images you want
+1. Scroll to the section of Pinterest with images you want visible on screen
 2. Open DevTools (F12) → Console tab
 3. Paste the script and press Enter
 4. Images download as `pinterest-1.jpg`, `pinterest-2.jpg`, etc.
 
+**Note:** Only downloads what's currently in your viewport/DOM - best quality but fewer images.
+
 ---
 
-## network-jpg-downloader.js
+## networkscript.js
 
-**Simple Network JPG Downloader**
+**Network Downloader - Scroll All You Want**
 
-Downloads all JPG images currently loaded in the browser's network tab.
+Downloads all images you've scrolled past from the browser's network log.
 
 **Features:**
-- Extracts all `.jpg` images from network requests
-- Fast bulk download
-- No filtering or processing
+- Captures everything loaded in the network tab
+- Scroll as much as you want to load more images
+- Automatically upgrades low-quality URLs to best available quality
+- Downloads all images you've passed by
 
 **How to use:**
-1. Browse any website and load the images you want
-2. Open DevTools (F12) → Console tab
-3. Paste the script and press Enter
-4. Images download as `network-1.jpg`, `network-2.jpg`, etc.
+1. Open DevTools (F12) → Network tab
+2. **Disable cache** (checkbox in Network tab)
+3. Scroll through Pinterest to load all the images you want
+4. Switch to Console tab
+5. Paste the script and press Enter
+6. Images download as `pinterest-1.jpg`, `pinterest-2.jpg`, etc.
+
+**Important:**
+- If you reload the page, **clear the network log** first (clear button in Network tab)
+- Image quality will be lower than DOM method but you can load unlimited images by scrolling
 
 ---
 
